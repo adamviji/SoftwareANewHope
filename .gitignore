@@ -132,7 +132,7 @@ ipch/
 *.vsp
 *.vspx
 *.sap
-*.vcxproj
+
 
 # Visual Studio Trace Files
 *.e2e
@@ -579,7 +579,7 @@ x86/
 *.userosscache
 *.sln.docview
 *.vcxproj.user
-*.vcxproj.filters
+
 
 # Generated files
 *.aps
