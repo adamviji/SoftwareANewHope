@@ -36,4 +36,5 @@ x86/
 # Compiled files
 *.obj
 *.dll
+*.lib
 *.ipch
