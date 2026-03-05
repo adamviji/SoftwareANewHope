@@ -9,10 +9,10 @@ InteractionType::~InteractionType()
 {
 }
 
-void InteractionType::activate()
-{
-	// Skip for now
-}
+//std::string InteractionType::startInteraction(std::string gameObjectName)
+//{
+//	return "You " + this->toString() + " " + gameObjectName;
+//}
 
 std::string InteractionType::toString()
 {

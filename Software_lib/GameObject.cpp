@@ -1,8 +1,17 @@
 #include "GameObject.h"
 
-GameObject::GameObject()
+GameObject::GameObject(std::string name)
 {
-	
+	this->name = name;
+
+	std::vector<std::string> interactions = { "look", "open", "move", "turn on", "turn off", "taste", "pick up", "drop" };
+
+
+	for (int i = 0; i < 4; ++i) {
+		int randNr = rand() % interactions.size();
+
+		this->availableInteractions.push_back(std::make_unique<InteractionType>(interactions[randNr]));
+	}
 }
 
 GameObject::~GameObject()
@@ -34,4 +43,14 @@ void GameObject::selectInteraction(std::string theInteractionType)
 std::string GameObject::getSelectedInteraction()
 {
 	return this->selectedInteraction->toString();
+}
+
+std::string GameObject::startCurrentInteraction()
+{
+	return "You " + this->selectedInteraction->toString() + " " + this->name;
+}
+
+std::string GameObject::getName() 
+{
+	return this->name;
 }

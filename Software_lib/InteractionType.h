@@ -10,7 +10,7 @@ public:
 	InteractionType(std::string interaction);
 	~InteractionType();
 
-	void activate();
+	//std::string startInteraction(std::string gameObjectName);
 
 	std::string toString();
 };
