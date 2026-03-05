@@ -31,13 +31,16 @@ std::string GameObject::listInteractions()
 	return ss.str();
 }
 
-void GameObject::selectInteraction(std::string theInteractionType)
+bool GameObject::selectInteraction(std::string theInteractionType)
 {
 	for (int i = 0; i < this->availableInteractions.size(); i++) {
 		if (this->availableInteractions[i]->toString() == theInteractionType) {
 			this->selectedInteraction = std::move(this->availableInteractions[i]);
+				return true;
 		}
 	}
+	selectedInteraction = nullptr;
+	return false;
 }
 
 std::string GameObject::getSelectedInteraction()
@@ -48,6 +51,11 @@ std::string GameObject::getSelectedInteraction()
 std::string GameObject::startCurrentInteraction()
 {
 	return "You " + this->selectedInteraction->toString() + " " + this->name;
+}
+
+void GameObject::abortCurrentInteraction()
+{
+	this->selectedInteraction = nullptr;
 }
 
 std::string GameObject::getName() 

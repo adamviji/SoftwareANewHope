@@ -2,7 +2,7 @@
 
 Scene::Scene(std::string sceneName)
 {
-	this->sceneName = sceneName;
+	this->sceneName = sceneName; 
 }
 
 Scene::~Scene()
