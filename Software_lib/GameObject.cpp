@@ -9,9 +9,17 @@ GameObject::~GameObject()
 {
 }
 
-std::string GameObject::interactions()
+std::string GameObject::listInteractions()
 {
-	return std::string();
+	std::stringstream ss;
+
+	ss << "Available interactions: ";
+
+	for (int i = 0; i < this->availableInteractions.size(); ++i) {
+		ss << this->availableInteractions[i]->toString() << std::endl;
+	}
+
+	return ss.str();
 }
 
 void GameObject::selectInteraction(std::string theInteractionType)

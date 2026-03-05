@@ -3,6 +3,7 @@
 #include "InteractionType.h"
 #include <vector>
 #include <memory>
+#include <sstream>
 
 class GameObject {
 private:
@@ -13,7 +14,7 @@ public:
 	GameObject();
 	~GameObject();
 
-	std::string interactions();
+	std::string listInteractions();
 	void selectInteraction(std::string theInteractionType);
 
 	std::string getSelectedInteraction();
