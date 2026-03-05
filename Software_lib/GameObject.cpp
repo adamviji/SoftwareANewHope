@@ -43,12 +43,12 @@ bool GameObject::selectInteraction(std::string theInteractionType)
 	return false;
 }
 
-std::string GameObject::getSelectedInteraction()
-{
-	return this->selectedInteraction->toString();
-}
+//std::string GameObject::getSelectedInteraction()
+//{
+//	return this->selectedInteraction->toString();
+//}
 
-std::string GameObject::startCurrentInteraction()
+std::string GameObject::startSelectedInteraction()
 {
 	return "You " + this->selectedInteraction->toString() + " " + this->name;
 }
