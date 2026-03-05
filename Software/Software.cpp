@@ -4,6 +4,11 @@
 #include <iostream>
 #include <map>
 #include "Game.h"
+//TODO Interact with character. filer Character + CharacterInterface 
+// Lägg till funktioner i Game för detta, initiateConversation & sendQuery.
+// kanske en endConversation?
+
+
 
 int main()
 {
@@ -48,6 +53,9 @@ int main()
     inventory->addGameObject(std::make_unique<GameObject>("Emacs device"));
     game.setInventory(std::move(inventory));
 
+    //Setup Character
+    // bla bla bla bra färdig kod...
+
     std::cout << "These are your choices" << std::endl;
     std::cout << " scene | inventory | select | interact | talk | say | quit" << std::endl;
     std::string cmd = "";
@@ -85,11 +93,42 @@ int main()
             }
             case 4:
             {
-                std::
+                std::string type;
+                std::cin >> type;
+                switch(interactions[type])
+                {
+                case 1: std::cout << game.selectInteraction("look")    ? game.startInteraction() : "Can't do that. \n"; break;
+                case 2: std::cout << game.selectInteraction("open")    ? game.startInteraction() : "Can't do that. \n"; break;
+                case 3: std::cout << game.selectInteraction("move")    ? game.startInteraction() : "Can't do that. \n"; break;
+                case 4: std::cout << game.selectInteraction("turnon")  ? game.startInteraction() : "Can't do that. \n"; break;
+                case 5: std::cout << game.selectInteraction("turnoff") ? game.startInteraction() : "Can't do that. \n"; break;
+                case 6: std::cout << game.selectInteraction("taste")   ? game.startInteraction() : "Can't do that. \n"; break;
+                case 7: std::cout << game.selectInteraction("pickup")  ? game.startInteraction() : "Can't do that. \n"; break;
+                case 8: std::cout << game.selectInteraction("drop")    ? game.startInteraction() : "Can't do that. \n"; break;
+                }
+                break;
             }
+            case 5: //talk
+            {
+
+            }
+            case 6:// say
+            {
+
+            }
+            case 7:
+            {
+                cmd = "quit";
+                break;
+            }
+            default:
+            {
+                std::cout << "Unknown command!" << std::endl;
+                break;
             }
         }
     }
+    return 0;
 }
 
 
@@ -97,10 +136,3 @@ int main()
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
