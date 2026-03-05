@@ -19,7 +19,7 @@ public:
 	std::string listInteractions();
 	bool selectInteraction(std::string theInteractionType);
 
-	std::string getSelectedInteraction();
+	//std::string getSelectedInteraction();
 	std::string startCurrentInteraction();
 	void abortCurrentInteraction();
 	std::string getName();
