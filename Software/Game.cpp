@@ -26,12 +26,20 @@ std::string Game::selectObject(const std::string& name)
 	if (currentScene)
 	{
 		auto* object = this->currentScene->getGameObject(name);
-		if (object) selectedObject = object; return object->getName();
+		if (object)
+		{
+			selectedObject = object; 
+			return object->getName();
+		}
 	}
 	if (playerInventory)
 	{
 		auto* object = this->playerInventory->getGameObject(name);
-		if (object) selectedObject = object; return object->getName();
+		if (object) 
+		{
+			selectedObject = object;
+			return object->getName();
+		}
 	}
 	return "";
 }
