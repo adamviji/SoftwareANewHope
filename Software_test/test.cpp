@@ -11,6 +11,7 @@ protected:
 		auto scene = std::make_unique<Scene>("testScene");
 		scene->addGameObject(std::make_unique<GameObject>("guitar"));
 		myGame.setCurrentScene(std::move(scene));
+
 	};
 
 	void TearDown() override {}
@@ -26,4 +27,25 @@ TEST_F(gameobjectTest, SelectObjectNegative) {
 	std::string nåttkul = myGame.selectObject("dragon");
 	std::cout << "SelectObjectPositev (Adam sandler): " << nåttkul << std::endl;
 	ASSERT_EQ(nåttkul, "dragon");
+}
+
+TEST_F(gameobjectTest, selectInteractionPositive) {
+	bool success = myGame.selectInteraction("taste");
+
+	ASSERT_TRUE(success);
+}
+
+TEST_F(gameobjectTest, selectedInteractionNegative) {
+	bool success = myGame.selectInteraction("taste");
+
+	ASSERT_FALSE(success);
+}
+
+
+TEST_F(gameobjectTest, startInteractionPositive) {
+	myGame.selectObject("guitar");
+	myGame.selectInteraction("taste");
+	std::string interactionStr = myGame.startInteraction();
+
+	ASSERT_EQ(interactionStr, "You taste guitar\n");
 }

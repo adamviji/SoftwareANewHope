@@ -8,10 +8,10 @@ GameObject::GameObject(std::string name)
 	std::vector<std::string> interactions = { "look", "open", "move", "turnon", "turnoff", "taste", "pick up", "drop" };
 
 
-	for (int i = 0; i < 4; ++i) {
-		int randNr = rand() % interactions.size();
+	for (int i = 0; i < interactions.size(); ++i) {
+		//int randNr = rand() % interactions.size();
 
-		this->availableInteractions.push_back(std::make_unique<InteractionType>(interactions[randNr]));
+		this->availableInteractions.push_back(std::make_unique<InteractionType>(interactions[i]));
 	}
 }
 
