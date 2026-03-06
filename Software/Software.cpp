@@ -83,11 +83,18 @@ int main()
                     std::cout << "Object not found" << std::endl;
                 }
                 else {
+                    std::cout << "Object selected: " << result << std::endl;
                     GameObject* obj = game.getCurrentScene()->getGameObject(name);
-                    if (obj == nullptr) obj = game.getInventory()->getGameObject(name);
-                    std::cout << "object selected " << result << std::endl;
-                    std::cout << "Available interactions " << obj->listInteractions() << std::endl;
+                    if (obj == nullptr && game.getInventory() != nullptr)
+                    {
+                        obj = game.getInventory()->getGameObject(name);
+                    }
+                        if (obj != nullptr)
+                    {
+                        std::cout << "Available interactions: " << obj->listInteractions() << std::endl;
+                    }
                 }
+
                 break;
             }
             case 4:
