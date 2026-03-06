@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include "../Software/Game.h"
+#include "../Software_lib/Game.h"
 //TODO Interact with character. filer Character + CharacterInterface 
 // Lägg till funktioner i Game för detta, initiateConversation & sendQuery.
 // kanske en endConversation?

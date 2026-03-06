@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Game.h"
 
 void Game::setCurrentScene(std::unique_ptr<Scene> s)
