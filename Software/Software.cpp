@@ -1,9 +1,8 @@
 // Software.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
 #include <iostream>
 #include <map>
-#include "Game.h"
+#include "../Software/Game.h"
 //TODO Interact with character. filer Character + CharacterInterface 
 // Lägg till funktioner i Game för detta, initiateConversation & sendQuery.
 // kanske en endConversation?
@@ -26,10 +25,10 @@ int main()
         {"look",       1},
         {"open",       2},
         {"move",       3},
-        {"turnOn",     4},
-        {"turnOff",    5},
+        {"turnon",     4},
+        {"turnoff",    5},
         {"taste",      6},
-        {"pickUp",     7},
+        {"pickup",     7},
         {"drop",       8},
     };
     //Setup scene
@@ -86,7 +85,7 @@ int main()
                 else {
                     GameObject* obj = game.getCurrentScene()->getGameObject(name);
                     if (obj == nullptr) obj = game.getInventory()->getGameObject(name);
-                    std::cout << "object selected" << result << std::endl;
+                    std::cout << "object selected " << result << std::endl;
                     std::cout << "Available interactions " << obj->listInteractions() << std::endl;
                 }
                 break;

@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "GameObject.h"
 
 GameObject::GameObject(std::string name)
@@ -43,14 +44,14 @@ bool GameObject::selectInteraction(std::string theInteractionType)
 	return false;
 }
 
-//std::string GameObject::getSelectedInteraction()
-//{
-//	return this->selectedInteraction->toString();
-//}
+std::string GameObject::getSelectedInteraction()
+{
+	return this->selectedInteraction->toString();
+}
 
 std::string GameObject::startCurrentInteraction()
 {
-	return "You " + this->selectedInteraction->toString() + " " + this->name;
+	return "You " + this->selectedInteraction->toString() + " " + this->name + "\n";
 }
 
 void GameObject::abortCurrentInteraction()

@@ -69,5 +69,5 @@ std::string Game::getSelectedObjectName() const
 std::string Game::getSelectedInteractionName() const
 {
 	if (selectedObject == nullptr) return "";
-	return selectedObject->getSelectedInteraction();
+	return this->selectedObject->getSelectedInteraction();
 }

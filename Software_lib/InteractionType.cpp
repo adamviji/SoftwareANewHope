@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "InteractionType.h"
 
 InteractionType::InteractionType(std::string interaction)
