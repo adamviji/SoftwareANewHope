@@ -1,6 +1,7 @@
 // Software.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include <iostream>
+#include <string>
 #include <map>
 #include "../Software/Game.h"
 //TODO Interact with character. filer Character + CharacterInterface 
@@ -35,21 +36,21 @@ int main()
     Game game;
     auto startScene = std::make_unique<Scene>("Start scene");
     startScene->addGameObject(std::make_unique<GameObject>("door"));
-    startScene->addGameObject(std::make_unique<GameObject>("Chair"));
+    startScene->addGameObject(std::make_unique<GameObject>("chair"));
     startScene->addGameObject(std::make_unique<GameObject>("table"));
     startScene->addGameObject(std::make_unique<GameObject>("gun"));
-    startScene->addGameObject(std::make_unique<GameObject>("Ammunition"));
+    startScene->addGameObject(std::make_unique<GameObject>("ammunition"));
     game.setCurrentScene(std::move(startScene));
 
     //Setup Inventory
     auto inventory = std::make_unique<Scene>("Inventory");
-    inventory->addGameObject(std::make_unique<GameObject>("Rocket Launcher"));
+    inventory->addGameObject(std::make_unique<GameObject>("rocket launcher"));
     inventory->addGameObject(std::make_unique<GameObject>("key"));
     inventory->addGameObject(std::make_unique<GameObject>("cellphone"));
     inventory->addGameObject(std::make_unique<GameObject>("dead rabbit"));
     inventory->addGameObject(std::make_unique<GameObject>("cocain"));
     inventory->addGameObject(std::make_unique<GameObject>("boiling flask"));
-    inventory->addGameObject(std::make_unique<GameObject>("Emacs device"));
+    inventory->addGameObject(std::make_unique<GameObject>("emacs device"));
     game.setInventory(std::move(inventory));
 
     //Setup Character
@@ -57,10 +58,13 @@ int main()
 
     std::cout << "These are your choices" << std::endl;
     std::cout << " scene | inventory | select | interact | talk | say | quit" << std::endl;
+ 
     std::string cmd = "";
 
     while (cmd != "quit") {
         std::cin >> cmd;
+        std::cin.ignore();
+
         switch (commands[cmd]) 
         {
             case 1: 
@@ -124,11 +128,11 @@ int main()
             }
             case 5: //talk character
             {
-
+                break;
             }
             case 6:// say character
             {
-
+                break;
             }
             case 7:
             {

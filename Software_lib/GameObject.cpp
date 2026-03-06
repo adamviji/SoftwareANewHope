@@ -5,7 +5,7 @@ GameObject::GameObject(std::string name)
 {
 	this->name = name;
 
-	std::vector<std::string> interactions = { "look", "open", "move", "turn on", "turn off", "taste", "pick up", "drop" };
+	std::vector<std::string> interactions = { "look", "open", "move", "turnon", "turnoff", "taste", "pick up", "drop" };
 
 
 	for (int i = 0; i < 4; ++i) {
