@@ -9,10 +9,13 @@ private:
 	std::unique_ptr<Scene> currentScene;
 	std::unique_ptr<Scene> playerInventory;
 	GameObject* selectedObject;
+	CharacterInterface characterUI;
+
 
 public:
-	CharacterInterface* characterUI;
-	Game() : selectedObject(nullptr) {};
+	Game() {
+		selectedObject = nullptr;
+	}
 
 	//SETUP
 	void setCurrentScene(std::unique_ptr<Scene> s);
@@ -35,18 +38,10 @@ public:
 	std::string getSelectedObjectName() const;
 	std::string getSelectedInteractionName() const;
 
-	bool isInConversation(std::string name) {
-		return this->characterUI->isActive(name);
-	};
+	bool isInConversation();
 
-	std::string initiateConversation(std::string& name) {
-		Character* cPtr = currentScene->getCharacter(name);
-		if (cPtr == nullptr)
-			return "no character selected";
-		return this->characterUI->initiateConversation(cPtr);
-	}
+	std::string initiateConversation(std::string& name);
+	
+	std::string sendQuery(std::string message);
 
-	std::string sendQuery(std::string message) {
-		return this->characterUI->sendQuery(message);
-	}
 };

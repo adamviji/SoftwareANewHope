@@ -141,11 +141,23 @@ int main()
             case 5: //talk character
             {
                 std::string greeting = game.initiateConversation(input);
-                std::cout << greeting;
+                if (greeting.empty())
+                {
+                    std::cout << "No character of that kind in this scene." << std::endl;
+                }
+                std::cout << greeting << std::endl;
                 break;
             }
             case 6:// say character
             {
+                if (game.isInConversation() == false)
+                {
+                    std::cout << "No active convo, try again fool! type talk <character> to initiate convo Bish." << std::endl;
+                }
+                else
+                {
+                    std::cout << game.sendQuery(input) << std::endl;
+                }
                 break;
             }
             case 7:

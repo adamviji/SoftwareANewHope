@@ -29,12 +29,8 @@ public:
 
 	
 
-	bool isActive(std::string name) {
-		if (this->currentlyActive->getName() == name) {
-			return true;
-		}
-
-		return false;
+	bool isActive() {
+		return this->currentlyActive != nullptr;
 	};
 
 };

@@ -80,3 +80,21 @@ std::string Game::getSelectedInteractionName() const
 	if (selectedObject == nullptr) return "";
 	return this->selectedObject->getSelectedInteraction();
 }
+
+std::string Game::initiateConversation(std::string& name)
+{
+	Character* cPtr = currentScene->getCharacter(name);
+	if (cPtr == nullptr)
+		return "no character selected";
+	return characterUI.initiateConversation(cPtr);
+}
+
+bool Game::isInConversation()
+{
+	return characterUI.isActive();
+}
+
+
+std::string Game::sendQuery(std::string message) {
+	return characterUI.sendQuery(message);
+}
