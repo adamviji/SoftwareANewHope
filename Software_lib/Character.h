@@ -1,17 +1,19 @@
 #pragma once
 #include <string>
+#include <random>
 
 class Character
 {
 private:
 	std::string name;
 	std::string greeting;
-
+	std::string randomSentence;
 
 public:
-	Character(std::string name, std::string greeting) {
+	Character(std::string name, std::string greeting, std::string randomSentence) {
 		this->name = name;
 		this->greeting = greeting;
+		this->randomSentence = randomSentence;
 	}
 
 	std::string getName() {
@@ -20,7 +22,7 @@ public:
 	std::string getInitialGreeting() {
 		return greeting;
 	}
-	std::string talk(std::string message) {
-		return this->name + " says: " + message;
+	std::string talk() {
+		return this->name + " says: " + randomSentence;
 	}
 };

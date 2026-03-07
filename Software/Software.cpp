@@ -54,11 +54,11 @@ int main()
 
     //Setup Character
     // bla bla bla bra färdig kod...
-    startScene->addCharacter(std::make_unique<Character>("Bob", "I am bob the builder"));
-    startScene->addCharacter(std::make_unique<Character>("Shrek", "The name's Shrek, master of the swamp"));
-    startScene->addCharacter(std::make_unique<Character>("Donkey", "I am THE conquerer of dragons"));
-    startScene->addCharacter(std::make_unique<Character>("Mafia man", "Your payment is due"));
-    startScene->addCharacter(std::make_unique<Character>("Aladin", "I can show you the world"));
+    startScene->addCharacter(std::make_unique<Character>("Bob", "I am bob the builder", "I only know how to build"));
+    startScene->addCharacter(std::make_unique<Character>("Shrek", "The name's Shrek, master of the swamp", "This is my swamp get out my swamp"));
+    startScene->addCharacter(std::make_unique<Character>("Donkey", "I am THE conquerer of dragons", "I have slayed every dragon known to man"));
+    startScene->addCharacter(std::make_unique<Character>("Mafiaman", "Your payment is due", "Im going to give you an offer that you cant refuse"));
+    startScene->addCharacter(std::make_unique<Character>("Aladin", "I can show you the world", "let fly away!"));
     game.setCurrentScene(std::move(startScene));
 
     

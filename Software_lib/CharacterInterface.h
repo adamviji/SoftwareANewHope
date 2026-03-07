@@ -24,7 +24,7 @@ public:
 			return "No character selected";
 		}
 
-		return this->currentlyActive->talk(messege);
+		return this->currentlyActive->talk();
 	};
 
 	
