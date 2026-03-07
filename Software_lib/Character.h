@@ -7,6 +7,7 @@ private:
 	std::string name;
 	std::string greeting;
 
+
 public:
 	Character(std::string name, std::string greeting) {
 		this->name = name;
