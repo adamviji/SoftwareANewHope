@@ -4,7 +4,6 @@
 #include <string>
 #include <map>
 #include "../Software_lib/Game.h"
-#include "../Software_lib/CharacterInterface.h"
 //TODO Interact with character. filer Character + CharacterInterface 
 // Lägg till funktioner i Game för detta, initiateConversation & sendQuery.
 // kanske en endConversation?
@@ -41,7 +40,6 @@ int main()
     startScene->addGameObject(std::make_unique<GameObject>("table"));
     startScene->addGameObject(std::make_unique<GameObject>("gun"));
     startScene->addGameObject(std::make_unique<GameObject>("ammunition"));
-    game.setCurrentScene(std::move(startScene));
 
     //Setup Inventory
     auto inventory = std::make_unique<Scene>("Inventory");
@@ -61,6 +59,7 @@ int main()
     startScene->addCharacter(std::make_unique<Character>("Donkey", "I am THE conquerer of dragons"));
     startScene->addCharacter(std::make_unique<Character>("Mafia man", "Your payment is due"));
     startScene->addCharacter(std::make_unique<Character>("Aladin", "I can show you the world"));
+    game.setCurrentScene(std::move(startScene));
 
     
 
@@ -68,10 +67,14 @@ int main()
     std::cout << " scene | inventory | select | interact | talk | say | quit" << std::endl;
  
     std::string cmd = "";
+    std::string line, input;
 
     while (cmd != "quit") {
-        std::cin >> cmd;
-        std::cin.ignore();
+        std::getline(std::cin, line);
+        std::stringstream ss(line);
+        ss >> cmd;
+        ss >> input;
+        //std::cin.ignore();
 
         switch (commands[cmd]) 
         {
@@ -79,6 +82,7 @@ int main()
             {
                 std::cout << "You are in " << game.getCurrentScene()->getName() << std::endl;
                 std::cout << "Objects available " << game.getCurrentScene()->listAvailableElements() << std::endl;
+                std::cout << "These are your available characters " << game.getCurrentScene()->listAvailableCharacters() << std::endl;
                 break;
             }
             case 2: 
@@ -136,7 +140,8 @@ int main()
             }
             case 5: //talk character
             {
-                
+                std::string greeting = game.initiateConversation(input);
+                std::cout << greeting;
                 break;
             }
             case 6:// say character

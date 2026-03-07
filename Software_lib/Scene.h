@@ -26,11 +26,20 @@ public:
 	std::string listAvailableCharacters() {
 		std::stringstream ss;
 		for (int i = 0; i < this->characters.size(); ++i) {
-			ss << this->characters[i]->getName() << std::endl;
+			ss << this->characters[i]->getName() << ", " << std::endl;
 		}
+		return ss.str();
 	}
 
-	std::vector<std::unique_ptr<Character>> getCharacters() {
-		return this->characters;
+	Character* getCharacter(std::string name) {
+		for (int i = 0; i < characters.size(); i++)
+		{
+			if (characters[i]->getName() == name)
+			{
+				return characters[i].get();
+			}
+		}
+		return nullptr;
 	}
 };
+

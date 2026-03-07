@@ -21,9 +21,9 @@ public:
 	void setInventory(std::unique_ptr<Scene> s);
 	Scene* getInventory() const;
 
-	void addCharacter(std::unique_ptr<Character> c) {
+	/*void addCharacter(std::unique_ptr<Character> c) {
 		this->characterUI->addCharacter(std::move(c));
-	};
+	};*/
 
 	//INTERACTION WITH OBJECT
 	std::string selectObject(const std::string& name);
@@ -40,10 +40,13 @@ public:
 	};
 
 	std::string initiateConversation(std::string& name) {
-		return this->characterUI->initiateConversation(name);
+		Character* cPtr = currentScene->getCharacter(name);
+		if (cPtr == nullptr)
+			return "no character selected";
+		return this->characterUI->initiateConversation(cPtr);
 	}
 
 	std::string sendQuery(std::string message) {
 		return this->characterUI->sendQuery(message);
 	}
-
+};

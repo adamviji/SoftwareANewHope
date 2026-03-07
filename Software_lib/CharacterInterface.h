@@ -9,22 +9,14 @@ class CharacterInterface
 {
 private:
 	Character* currentlyActive;
-	std::vector<std::unique_ptr<Character>> characters;
+	//std::vector<std::unique_ptr<Character>> characters;
 
 public:
 	CharacterInterface() { this->currentlyActive = nullptr; }
-	~CharacterInterface();
+	//~CharacterInterface();
 
-	std::string initiateConversation(std::string name) {
-		currentlyActive = nullptr;
-		for (int i = 0; i < characters.size(); i++)
-		{
-			if (characters[i]->getName() == name)
-			{
-				currentlyActive = characters[i].get();
-			}
-		}
-		if (currentlyActive == nullptr) return "";
+	std::string initiateConversation(Character* c) {
+		currentlyActive = c;
 		return currentlyActive->getInitialGreeting();
 	}
 	std::string sendQuery(std::string messege) {
@@ -48,6 +40,6 @@ public:
 };
 
 
-CharacterInterface::~CharacterInterface()
-{
-}
+//CharacterInterface::~CharacterInterface()
+//{
+//}

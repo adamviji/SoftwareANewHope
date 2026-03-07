@@ -17,7 +17,7 @@ public:
 		return this->name;
 	}
 	std::string getInitialGreeting() {
-		return this->greeting;
+		return greeting;
 	}
 	std::string talk(std::string message) {
 		return this->name + " says: " + message;
