@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include "../Software_lib/Game.h"
+#include "../Software_lib/CharacterInterface.h"
 //TODO Interact with character. filer Character + CharacterInterface 
 // Lägg till funktioner i Game för detta, initiateConversation & sendQuery.
 // kanske en endConversation?
@@ -55,6 +56,13 @@ int main()
 
     //Setup Character
     // bla bla bla bra färdig kod...
+    startScene->addCharacter(std::make_unique<Character>("Bob", "I am bob the builder"));
+    startScene->addCharacter(std::make_unique<Character>("Shrek", "The name's Shrek, master of the swamp"));
+    startScene->addCharacter(std::make_unique<Character>("Donkey", "I am THE conquerer of dragons"));
+    startScene->addCharacter(std::make_unique<Character>("Mafia man", "Your payment is due"));
+    startScene->addCharacter(std::make_unique<Character>("Aladin", "I can show you the world"));
+
+    
 
     std::cout << "These are your choices" << std::endl;
     std::cout << " scene | inventory | select | interact | talk | say | quit" << std::endl;
@@ -128,6 +136,7 @@ int main()
             }
             case 5: //talk character
             {
+                
                 break;
             }
             case 6:// say character

@@ -15,7 +15,6 @@ public:
 	CharacterInterface() { this->currentlyActive = nullptr; }
 	~CharacterInterface();
 
-	void addCharacter(std::unique_ptr<Character> c) { characters.push_back(std::move(c)); }
 	std::string initiateConversation(std::string name) {
 		currentlyActive = nullptr;
 		for (int i = 0; i < characters.size(); i++)
@@ -28,9 +27,23 @@ public:
 		if (currentlyActive == nullptr) return "";
 		return currentlyActive->getInitialGreeting();
 	}
-	std::string sendQuery(std::string messege);
+	std::string sendQuery(std::string messege) {
+		if (this->currentlyActive == nullptr) {
+			return "No character selected";
+		}
 
-	bool isActive();
+		return this->currentlyActive->talk(messege);
+	};
+
+	
+
+	bool isActive(std::string name) {
+		if (this->currentlyActive->getName() == name) {
+			return true;
+		}
+
+		return false;
+	};
 
 };
 
