@@ -26,7 +26,7 @@ public:
 	std::string listAvailableCharacters() {
 		std::stringstream ss;
 		for (int i = 0; i < this->characters.size(); ++i) {
-			ss << this->characters[i]->getName() << ", " << std::endl;
+			ss << this->characters[i]->getName() << ", ";
 		}
 		return ss.str();
 	}
