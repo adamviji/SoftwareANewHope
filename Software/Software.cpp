@@ -54,17 +54,17 @@ int main()
 
     //Setup Character
     // bla bla bla bra färdig kod...
-    startScene->addCharacter(std::make_unique<Character>("Bob", "I am bob the builder", "I only know how to build"));
-    startScene->addCharacter(std::make_unique<Character>("Shrek", "The name's Shrek, master of the swamp", "This is my swamp get out my swamp"));
-    startScene->addCharacter(std::make_unique<Character>("Donkey", "I am THE conquerer of dragons", "I have slayed every dragon known to man"));
-    startScene->addCharacter(std::make_unique<Character>("Mafiaman", "Your payment is due", "Im going to give you an offer that you cant refuse"));
-    startScene->addCharacter(std::make_unique<Character>("Aladin", "I can show you the world", "let fly away!"));
+    startScene->addCharacter(std::make_unique<Character>("bob", "I am bob the builder", "I only know how to build"));
+    startScene->addCharacter(std::make_unique<Character>("shrek", "The name's Shrek, master of the swamp", "This is my swamp get out my swamp"));
+    startScene->addCharacter(std::make_unique<Character>("donkey", "I am THE conquerer of dragons", "I have slayed every dragon known to man"));
+    startScene->addCharacter(std::make_unique<Character>("mafiaman", "Your payment is due", "Im going to give you an offer that you cant refuse"));
+    startScene->addCharacter(std::make_unique<Character>("aladin", "I can show you the world", "let fly away!"));
     game.setCurrentScene(std::move(startScene));
 
     
 
     std::cout << "These are your choices" << std::endl;
-    std::cout << " scene | inventory | select <object> | interact <object> | talk <character> | say <message>| quit" << std::endl;
+    std::cout << " scene | inventory | select <object> | interact <object> | talk <character> | say <message> | quit" << std::endl;
  
     std::string cmd = "";
     std::string line, input;
