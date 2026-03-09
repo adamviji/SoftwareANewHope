@@ -92,18 +92,19 @@ int main()
             }
             case 3:
             {
-                std::string name;
-                std::cin >> name;
-                std::string result = game.selectObject(name);
+                //std::cin.ignore();
+                //std::string name;
+                //std::cin >> name;
+                std::string result = game.selectObject(input);
                 if (result.empty()) {
                     std::cout << "Object not found" << std::endl;
                 }
                 else {
                     std::cout << "Object selected: " << result << std::endl;
-                    GameObject* obj = game.getCurrentScene()->getGameObject(name);
+                    GameObject* obj = game.getCurrentScene()->getGameObject(input);
                     if (obj == nullptr && game.getInventory() != nullptr)
                     {
-                        obj = game.getInventory()->getGameObject(name);
+                        obj = game.getInventory()->getGameObject(input);
                     }
                         if (obj != nullptr)
                     {
@@ -115,9 +116,10 @@ int main()
             }
             case 4:
             {
-                std::string type;
-                std::cin >> type;
-                if (game.selectInteraction(type) == false)
+                //std::cin.ignore();
+                //std::string type;
+                //std::cin >> type;
+                if (game.selectInteraction(input) == false)
                 {
                     std::cout << "Can't do that..." << std::endl;
                 }
