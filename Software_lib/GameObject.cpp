@@ -26,7 +26,7 @@ std::string GameObject::listInteractions()
 	ss << "Available interactions: ";
 
 	for (int i = 0; i < this->availableInteractions.size(); ++i) {
-		ss << this->availableInteractions[i]->toString() << std::endl;
+		ss << this->availableInteractions[i]->toString() << ", ";
 	}
 
 	return ss.str();
