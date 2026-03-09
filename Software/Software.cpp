@@ -64,7 +64,7 @@ int main()
     
 
     std::cout << "These are your choices" << std::endl;
-    std::cout << " scene | inventory | select | interact | talk | say | quit" << std::endl;
+    std::cout << " scene | inventory | select <object> | interact <object> | talk <character> | say <message>| quit" << std::endl;
  
     std::string cmd = "";
     std::string line, input;
@@ -74,7 +74,6 @@ int main()
         std::stringstream ss(line);
         ss >> cmd;
         ss >> input;
-        //std::cin.ignore();
 
         switch (commands[cmd]) 
         {
@@ -92,9 +91,7 @@ int main()
             }
             case 3:
             {
-                //std::cin.ignore();
-                //std::string name;
-                //std::cin >> name;
+
                 std::string result = game.selectObject(input);
                 if (result.empty()) {
                     std::cout << "Object not found" << std::endl;
@@ -116,9 +113,7 @@ int main()
             }
             case 4:
             {
-                //std::cin.ignore();
-                //std::string type;
-                //std::cin >> type;
+
                 if (game.selectInteraction(input) == false)
                 {
                     std::cout << "Can't do that..." << std::endl;
@@ -127,17 +122,6 @@ int main()
                 {
                     std::cout << game.startInteraction() << std::endl;
                 }
-                //switch(interactions[type])
-                //{
-                //case 1: std::cout << game.selectInteraction("look")    ? game.startInteraction() : "Can't do that. \n"; break;
-                //case 2: std::cout << game.selectInteraction("open")    ? game.startInteraction() : "Can't do that. \n"; break;
-                //case 3: std::cout << game.selectInteraction("move")    ? game.startInteraction() : "Can't do that. \n"; break;
-                //case 4: std::cout << game.selectInteraction("turnon")  ? game.startInteraction() : "Can't do that. \n"; break;
-                //case 5: std::cout << game.selectInteraction("turnoff") ? game.startInteraction() : "Can't do that. \n"; break;
-                //case 6: std::cout << game.selectInteraction("taste")   ? game.startInteraction() : "Can't do that. \n"; break;
-                //case 7: std::cout << game.selectInteraction("pickup")  ? game.startInteraction() : "Can't do that. \n"; break;
-                //case 8: std::cout << game.selectInteraction("drop")    ? game.startInteraction() : "Can't do that. \n"; break;
-                //}
                 break;
             }
             case 5: //talk character
