@@ -43,13 +43,13 @@ int main()
 
     //Setup Inventory
     auto inventory = std::make_unique<Scene>("Inventory");
-    inventory->addGameObject(std::make_unique<GameObject>("rocket launcher"));
+    inventory->addGameObject(std::make_unique<GameObject>("rocketlauncher"));
     inventory->addGameObject(std::make_unique<GameObject>("key"));
     inventory->addGameObject(std::make_unique<GameObject>("cellphone"));
-    inventory->addGameObject(std::make_unique<GameObject>("dead rabbit"));
+    inventory->addGameObject(std::make_unique<GameObject>("deadrabbit"));
     inventory->addGameObject(std::make_unique<GameObject>("cocain"));
-    inventory->addGameObject(std::make_unique<GameObject>("boiling flask"));
-    inventory->addGameObject(std::make_unique<GameObject>("emacs device"));
+    inventory->addGameObject(std::make_unique<GameObject>("boilingflask"));
+    inventory->addGameObject(std::make_unique<GameObject>("emacsdevice"));
     game.setInventory(std::move(inventory));
 
     //Setup Character
