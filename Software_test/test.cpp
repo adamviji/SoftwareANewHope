@@ -26,7 +26,7 @@ TEST_F(gameobjectTest, SelectObjectPositeve) {
 TEST_F(gameobjectTest, SelectObjectNegative) {
 	std::string nåttkul = myGame.selectObject("dragon");
 	std::cout << "SelectObjectNegative (dragon): " << nåttkul << std::endl;
-	ASSERT_EQ(nåttkul, "dragon");
+	ASSERT_EQ(nåttkul, "");
 }
 
 TEST_F(gameobjectTest, selectInteractionPositive) {
@@ -37,10 +37,10 @@ TEST_F(gameobjectTest, selectInteractionPositive) {
 }
 
 TEST_F(gameobjectTest, selectedInteractionNegative) {
-	myGame.selectObject("guitar");
-	bool success = myGame.selectInteraction("shoot");
+	myGame.selectObject("dragon");
+	bool success = myGame.selectInteraction("");
 
-	ASSERT_TRUE(success);
+	ASSERT_FALSE(success);
 }
 
 
@@ -53,7 +53,7 @@ TEST_F(gameobjectTest, startInteractionPositive) {
 }
 
 TEST_F(gameobjectTest, startInteractionmNegative) {
-	myGame.selectObject("guitar");
+	myGame.selectObject("dragon");
 	std::string result = myGame.startInteraction();
 	ASSERT_EQ(result, "No object selected.");
 }
